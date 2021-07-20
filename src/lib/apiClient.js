@@ -25,6 +25,10 @@ class ApiClient {
 	logout() {
 		return this.apiClient.post('/logout', {}).then(response => response.data);
 	}
+
+	// expenses() {
+	// 	return this.apiClient.get('/expenses', {}).then(response => response.data);
+	// }
 }
 
 const apiClient = new ApiClient();

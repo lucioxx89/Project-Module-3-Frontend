@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class Private extends Component {
+class Profile extends Component {
 	render() {
 		return (
 			<div>
-				<h1>Welcome username</h1>
-				<button className="border border-grey-md rounded-md m-3 p-4">
+				<h1>Profile</h1>
+				<button>
 					<Link to="/expenses">Expenses</Link>
 				</button>
 				<button>
@@ -20,4 +20,4 @@ class Private extends Component {
 	}
 }
 
-export default Private;
+export default Profile;
