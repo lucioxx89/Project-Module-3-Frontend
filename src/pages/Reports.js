@@ -7,7 +7,7 @@ class Reports extends Component {
 			<div>
 				<h1>Reports</h1>
 				<button>
-					<Link to="/expenses">Expenses</Link>
+					<Link to="/transactions">Transactions</Link>
 				</button>
 				<button>
 					<Link to="/reports">Reports</Link>

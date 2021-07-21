@@ -7,7 +7,7 @@ class Private extends Component {
 			<div>
 				<h1>Welcome username</h1>
 				<button className="border border-grey-md rounded-md m-3 p-4">
-					<Link to="/expenses">Expenses</Link>
+					<Link to="/transactions">Transactions</Link>
 				</button>
 				<button>
 					<Link to="/reports">Reports</Link>
