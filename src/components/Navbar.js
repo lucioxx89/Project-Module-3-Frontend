@@ -11,7 +11,9 @@ class Navbar extends Component {
 				{isLoggedIn ? (
 					<>
 						<p>username: {user.username}</p>
-						<button onClick={logout}>Logout</button>
+						<button onClick={logout} className="btn btn-outline-primary">
+							Logout
+						</button>
 					</>
 				) : (
 					<>
