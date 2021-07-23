@@ -44,6 +44,10 @@ class Transactions extends Component {
 					Profile
 				</Link>
 
+				<Link to="/addTransaction" className="btn btn-link">
+					Add Transaction
+				</Link>
+
 				<table className="table table-hover">
 					<thead>
 						<tr>

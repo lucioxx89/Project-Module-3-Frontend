@@ -7,7 +7,7 @@ const TransactionItem = props => {
 			<td>{props.payee}</td>
 			<td>{props.category}</td>
 			<td>{props.description}</td>
-			<td>{props.amount}</td>
+			<td>{props.amount} €</td>
 		</tr>
 	);
 };

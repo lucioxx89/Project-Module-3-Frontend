@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import Transactions from './pages/Transactions';
 import Reports from './pages/Reports';
 import Profile from './pages/Profile';
+import AddTransaction from './pages/AddTransaction';
 import { withAuth } from './providers/AuthProvider';
 
 class App extends Component {
@@ -30,6 +31,7 @@ class App extends Component {
 					<PrivateRoute path="/transactions" component={Transactions} />
 					<PrivateRoute path="/reports" component={Reports} />
 					<PrivateRoute path="/profile" component={Profile} />
+					<PrivateRoute path="/addTransaction" component={AddTransaction} />
 				</Switch>
 			</div>
 		);

@@ -11,6 +11,13 @@ class TransactionsApiClient {
 	getAllTransactions() {
 		return this.transactionsApiClient.get('/transactions').then(response => response.data);
 	}
+
+	createTransaction(body) {
+		const { date, payee, description, category, amount } = body;
+		return this.transactionsApiClient
+			.post('/transactions', { date, payee, description, category, amount })
+			.then(response => response.data);
+	}
 }
 
 const transactionsApiClient = new TransactionsApiClient();
