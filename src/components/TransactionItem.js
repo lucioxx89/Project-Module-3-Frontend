@@ -8,26 +8,11 @@ const TransactionItem = props => {
 			<td>{props.category}</td>
 			<td>{props.description}</td>
 			<td>{props.amount} €</td>
+			<td>{props.button} </td>
+
+			{/* <button>Delete {props.onDelete}</button> */}
 		</tr>
 	);
 };
-
-// import React, { Component } from 'react';
-
-// class TransactionItem extends Component {
-// 	constructor(props) {
-// 	// 	super(props);
-// 	// 	// this.state(props);
-// 	 }
-
-// 	render() {
-// 		return (
-// 			<div>
-// 				<p>Transaction iteeeeeeem</p>
-// 				<p> {props.date}</p>
-// 			</div>
-// 		);
-// 	}
-// }
 
 export default TransactionItem;

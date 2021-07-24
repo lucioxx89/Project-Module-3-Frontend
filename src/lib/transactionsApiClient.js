@@ -18,6 +18,10 @@ class TransactionsApiClient {
 			.post('/transactions', { date, payee, description, category, amount })
 			.then(response => response.data);
 	}
+
+	deleteTransaction(id) {
+		return this.transactionsApiClient.delete(`/transactions/${id}`).then(response => response.data);
+	}
 }
 
 const transactionsApiClient = new TransactionsApiClient();

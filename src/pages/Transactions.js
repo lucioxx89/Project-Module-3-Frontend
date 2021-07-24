@@ -13,6 +13,10 @@ class Transactions extends Component {
 	}
 
 	async componentDidMount() {
+		this.getAllTransactions();
+	}
+
+	getAllTransactions = async () => {
 		console.log('compdidmount');
 
 		try {
@@ -25,11 +29,15 @@ class Transactions extends Component {
 		} catch (error) {
 			console.log(error);
 		}
-	}
+	};
+
+	handleDelete = async id => {
+		await transactionsApiClient.deleteTransaction(id);
+		await this.getAllTransactions();
+	};
 
 	render() {
 		console.log('newState', this.state.transactionsList);
-		console.log('tipo', typeof this.state.transactionsList);
 
 		return (
 			<>
@@ -68,6 +76,7 @@ class Transactions extends Component {
 									category={transaction.category}
 									description={transaction.description}
 									amount={transaction.amount}
+									button={<button onClick={() => this.handleDelete(transaction._id)}>Delete</button>}
 								/>
 							);
 						})}
@@ -79,38 +88,3 @@ class Transactions extends Component {
 }
 
 export default Transactions;
-
-// [
-// 	{
-// 		_id: '60f873509181a584394dcad1',
-// 		date: '30.07.2021',
-// 		payee: 'Consum Express',
-// 		amount: 100,
-// 		description: 'Burger Bar with flat mates',
-// 		category: 'Grocery',
-// 		userId: '60f146f3d8019e7a438189f9',
-// 		__v: 0,
-// 	},
-// 	{
-// 		_id: '60f873509181a584394dcad2',
-// 		date: '30.07.2021',
-// 		payee: 'Vueling Airlines',
-// 		amount: 100,
-// 		description: 'Flights for Italy vacation',
-// 		category: 'Travel',
-// 		userId: '60f146f3d8019e7a438189f9',
-// 		__v: 0,
-// 	},
-// 	{
-// 		_id: '60f873509181a584394dcad3',
-// 		date: '30.07.2021',
-// 		payee: 'Pharmacia Providencia',
-// 		amount: 100,
-// 		description: 'Pills',
-// 		category: 'Health',
-// 		userId: '60f146f3d8019e7a438189f9',
-// 		__v: 0,
-// 	},
-// ];
-
-// TODO: get real transactions from API and assign them to state
