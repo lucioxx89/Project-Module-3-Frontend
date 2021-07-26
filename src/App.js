@@ -11,6 +11,7 @@ import Transactions from './pages/Transactions';
 import Reports from './pages/Reports';
 import Profile from './pages/Profile';
 import AddTransaction from './pages/AddTransaction';
+import EditTransaction from './pages/EditTransaction';
 import { withAuth } from './providers/AuthProvider';
 
 class App extends Component {
@@ -23,8 +24,8 @@ class App extends Component {
 			<div className="container">
 				<h1>Expense Tracker</h1>
 
-				<Navbar />
 				<Switch>
+					<Navbar exact path="/" component={Navbar}></Navbar>
 					<AnonRoute path="/signup" component={Signup} />
 					<AnonRoute path="/login" component={Login} />
 					<PrivateRoute path="/private" component={Private} />
@@ -32,6 +33,7 @@ class App extends Component {
 					<PrivateRoute path="/reports" component={Reports} />
 					<PrivateRoute path="/profile" component={Profile} />
 					<PrivateRoute path="/addTransaction" component={AddTransaction} />
+					<PrivateRoute path="/editTransaction" component={EditTransaction} />
 				</Switch>
 			</div>
 		);

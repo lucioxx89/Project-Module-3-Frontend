@@ -41,7 +41,6 @@ class Transactions extends Component {
 
 		return (
 			<>
-				<h1>Recent Transactions</h1>
 				<Link to="/transactions" className="btn btn-link">
 					Transactions
 				</Link>
@@ -55,6 +54,8 @@ class Transactions extends Component {
 				<Link to="/addTransaction" className="btn btn-link">
 					Add Transaction
 				</Link>
+
+				<h1>Recent Transactions</h1>
 
 				<table className="table table-hover">
 					<thead>
@@ -76,7 +77,8 @@ class Transactions extends Component {
 									category={transaction.category}
 									description={transaction.description}
 									amount={transaction.amount}
-									button={<button onClick={() => this.handleDelete(transaction._id)}>Delete</button>}
+									buttonDelete={<button onClick={() => this.handleDelete(transaction._id)}>Delete</button>}
+									buttonEdit={<Link to="/editTransaction">Edit</Link>}
 								/>
 							);
 						})}

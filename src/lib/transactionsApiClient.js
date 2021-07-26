@@ -22,6 +22,13 @@ class TransactionsApiClient {
 	deleteTransaction(id) {
 		return this.transactionsApiClient.delete(`/transactions/${id}`).then(response => response.data);
 	}
+
+	editTransaction(id, body) {
+		const { date, payee, description, category, amount } = body;
+		return this.transactionsApiClient
+			.put(`/transactions/${id}`, { date, payee, description, category, amount })
+			.then(response => response.data);
+	}
 }
 
 const transactionsApiClient = new TransactionsApiClient();
