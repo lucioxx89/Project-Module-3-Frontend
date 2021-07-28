@@ -33,7 +33,7 @@ class App extends Component {
 					<PrivateRoute path="/reports" component={Reports} />
 					<PrivateRoute path="/profile" component={Profile} />
 					<PrivateRoute path="/addTransaction" component={AddTransaction} />
-					<PrivateRoute path="/editTransaction" component={EditTransaction} />
+					<PrivateRoute path="/editTransaction/:id" component={EditTransaction} />
 				</Switch>
 			</div>
 		);

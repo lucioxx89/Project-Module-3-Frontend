@@ -12,6 +12,10 @@ class TransactionsApiClient {
 		return this.transactionsApiClient.get('/transactions').then(response => response.data);
 	}
 
+	getOneTransaction(id) {
+		return this.transactionsApiClient.get(`/transactions/${id}`).then(response => response.data);
+	}
+
 	createTransaction(body) {
 		const { date, payee, description, category, amount } = body;
 		return this.transactionsApiClient
@@ -34,5 +38,3 @@ class TransactionsApiClient {
 const transactionsApiClient = new TransactionsApiClient();
 
 export default transactionsApiClient;
-
-// process.env.REACT_APP_API_URI,

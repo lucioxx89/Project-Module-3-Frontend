@@ -78,7 +78,7 @@ class Transactions extends Component {
 									description={transaction.description}
 									amount={transaction.amount}
 									buttonDelete={<button onClick={() => this.handleDelete(transaction._id)}>Delete</button>}
-									buttonEdit={<Link to="/editTransaction">Edit</Link>}
+									buttonEdit={<Link to={`/editTransaction/${transaction._id}`}>Edit</Link>}
 								/>
 							);
 						})}

@@ -14,18 +14,55 @@ class EditTransaction extends Component {
 		};
 	}
 
+	componentDidMount = async () => {
+		const { id } = this.props.match.params;
+
+		try {
+			const transactionToEdit = await transactionsApiClient.getOneTransaction(id);
+			console.log('transactiontoedit', transactionToEdit);
+			this.setState({
+				date: transactionToEdit.found.title,
+				payee: transactionToEdit.found.payee,
+				description: transactionToEdit.found.description,
+				category: transactionToEdit.found.category,
+				amount: transactionToEdit.found.amount,
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	handleEdit = async event => {
+		event.preventDefault();
+		const { id } = this.props.match.params;
+		const { date, payee, description, category, amount } = this.state;
+		try {
+			const editTransaction = await transactionsApiClient.editTransaction(id, {
+				date,
+				payee,
+				description,
+				category,
+				amount,
+			});
+			console.log(editTransaction);
+		} catch (error) {
+			console.log(error);
+		} finally {
+			this.props.history.push('/transactions');
+		}
+	};
+
 	handleChangeInput = event => {
 		console.log('event', event.target.value);
+
 		this.setState({
 			[event.target.name]: event.target.value,
 		});
 	};
 
-	handleEdit = (id, body, event) => {
-		event.preventDefault();
-		transactionsApiClient.put(id);
-		this.props.history.push('/transactions', body);
-	};
+	// 	transactionsApiClient.put(id);
+	// 	this.props.history.push('/transactions', body);
+	// };
 	// handleDelete = async id => {
 	// 	const { id } = this.props.match.params._id;
 	// 	try {
