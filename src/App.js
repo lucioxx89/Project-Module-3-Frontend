@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Switch } from 'react-router-dom';
 
-import Navbar from './components/Navbar';
+import AuthBar from './components/AuthBar';
 import PrivateRoute from './components/PrivateRoute';
 import AnonRoute from './components/AnonRoute';
-import Private from './pages/Private';
+import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Transactions from './pages/Transactions';
@@ -25,10 +25,10 @@ class App extends Component {
 				<h1>Expense Tracker</h1>
 
 				<Switch>
-					<Navbar exact path="/" component={Navbar}></Navbar>
+					<AuthBar exact path="/" component={AuthBar} />
 					<AnonRoute path="/signup" component={Signup} />
 					<AnonRoute path="/login" component={Login} />
-					<PrivateRoute path="/private" component={Private} />
+					<PrivateRoute path="/home" component={Home} />
 					<PrivateRoute path="/transactions" component={Transactions} />
 					<PrivateRoute path="/reports" component={Reports} />
 					<PrivateRoute path="/profile" component={Profile} />

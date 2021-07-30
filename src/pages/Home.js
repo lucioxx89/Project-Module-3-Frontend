@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 import { withAuth } from '../providers/AuthProvider';
 
-class Private extends Component {
+class Home extends Component {
 	render() {
 		return (
 			<div>
 				<h1>Welcome {this.props.user.username}</h1>
-				<button>
+				{/* <button>
 					<Link to="/transactions">Transactions</Link>
 				</button>
 				<button>
@@ -15,11 +16,11 @@ class Private extends Component {
 				</button>
 				<button>
 					<Link to="/profile">Profile</Link>
-				</button>
+				</button> */}
+				<Navbar></Navbar>
 			</div>
 		);
 	}
 }
 
-// export default Private;
-export default withAuth(Private);
+export default withAuth(Home);

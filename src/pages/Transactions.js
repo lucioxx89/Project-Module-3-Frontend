@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TransactionItem from '../components/TransactionItem';
 import transactionsApiClient from '../lib/transactionsApiClient';
+import '../AddTransactionButton.css';
+import Navbar from '../components/Navbar';
 
 class Transactions extends Component {
 	constructor(props) {
@@ -41,7 +43,10 @@ class Transactions extends Component {
 
 		return (
 			<>
-				<Link to="/transactions" className="btn btn-link">
+				<i className="float">
+					<Link to="/addTransaction" style={{ textDecoration: 'none' }} className="fa fa-plus my-float" />
+				</i>
+				{/* <Link to="/transactions" className="btn btn-link">
 					Transactions
 				</Link>
 				<Link to="/reports" className="btn btn-link">
@@ -49,11 +54,12 @@ class Transactions extends Component {
 				</Link>
 				<Link to="/profile" className="btn btn-link">
 					Profile
-				</Link>
+				</Link> */}
+				<Navbar></Navbar>
 
-				<Link to="/addTransaction" className="btn btn-link">
+				{/* <Link to="/addTransaction" className="btn btn-link">
 					Add Transaction
-				</Link>
+				</Link> */}
 
 				<h1>Recent Transactions</h1>
 

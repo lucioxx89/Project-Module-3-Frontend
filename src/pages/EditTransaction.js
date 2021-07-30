@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import transactionsApiClient from '../lib/transactionsApiClient';
-import Private from './Private';
+import Home from './Home';
 
 class EditTransaction extends Component {
 	constructor(props) {
@@ -19,7 +19,7 @@ class EditTransaction extends Component {
 
 		try {
 			const transactionToEdit = await transactionsApiClient.getOneTransaction(id);
-			console.log('transactiontoedit', transactionToEdit);
+			console.log('transactiontoedit', this.props);
 			this.setState({
 				date: transactionToEdit.found.title,
 				payee: transactionToEdit.found.payee,
@@ -59,7 +59,6 @@ class EditTransaction extends Component {
 			[event.target.name]: event.target.value,
 		});
 	};
-
 	// 	transactionsApiClient.put(id);
 	// 	this.props.history.push('/transactions', body);
 	// };
@@ -78,7 +77,7 @@ class EditTransaction extends Component {
 	render() {
 		return (
 			<>
-				<Private></Private>
+				<Home></Home>
 
 				<form onSubmit={this.handleEdit}>
 					<label> Date:</label>

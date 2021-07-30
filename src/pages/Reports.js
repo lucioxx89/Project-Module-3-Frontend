@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 
 class Reports extends Component {
 	render() {
 		return (
 			<div>
-				<Link to="/transactions" className="btn btn-link">
+				{/* <Link to="/transactions" className="btn btn-link">
 					Transactions{' '}
 				</Link>
 
@@ -15,7 +16,9 @@ class Reports extends Component {
 
 				<Link to="/profile" className="btn btn-link">
 					Profile
-				</Link>
+				</Link> */}
+
+				<Navbar></Navbar>
 
 				<h1>Reports</h1>
 			</div>
