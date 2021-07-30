@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import transactionsApiClient from '../lib/transactionsApiClient';
-import Home from './Home';
+import Navbar from '../components/Navbar';
 
 class EditTransaction extends Component {
 	constructor(props) {
@@ -59,25 +59,11 @@ class EditTransaction extends Component {
 			[event.target.name]: event.target.value,
 		});
 	};
-	// 	transactionsApiClient.put(id);
-	// 	this.props.history.push('/transactions', body);
-	// };
-	// handleDelete = async id => {
-	// 	const { id } = this.props.match.params._id;
-	// 	try {
-	// 		await transactionsApiClient.editTransaction(this.state);
-	// 		console.log('transactionUpdated:', this.state);
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	} finally {
-	// 		this.props.history.push('/transactions', this.state);
-	// 	}
-	// };
 
 	render() {
 		return (
 			<>
-				<Home></Home>
+				<Navbar></Navbar>
 
 				<form onSubmit={this.handleEdit}>
 					<label> Date:</label>

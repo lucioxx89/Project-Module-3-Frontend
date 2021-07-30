@@ -7,7 +7,11 @@ class Home extends Component {
 	render() {
 		return (
 			<div>
+				<Navbar></Navbar>
+
 				<h1>Welcome {this.props.user.username}</h1>
+				<p>Go to transactons and check what you have spent so far</p>
+
 				{/* <button>
 					<Link to="/transactions">Transactions</Link>
 				</button>
@@ -17,7 +21,6 @@ class Home extends Component {
 				<button>
 					<Link to="/profile">Profile</Link>
 				</button> */}
-				<Navbar></Navbar>
 			</div>
 		);
 	}

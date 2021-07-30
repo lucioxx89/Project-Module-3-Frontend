@@ -22,7 +22,7 @@ class App extends Component {
 		}
 		return (
 			<div className="container">
-				<h1>Expense Tracker</h1>
+				{/* <h1>Expense Tracker</h1> */}
 
 				<Switch>
 					<AuthBar exact path="/" component={AuthBar} />

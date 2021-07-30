@@ -46,20 +46,8 @@ class Transactions extends Component {
 				<i className="float">
 					<Link to="/addTransaction" style={{ textDecoration: 'none' }} className="fa fa-plus my-float" />
 				</i>
-				{/* <Link to="/transactions" className="btn btn-link">
-					Transactions
-				</Link>
-				<Link to="/reports" className="btn btn-link">
-					Reports
-				</Link>
-				<Link to="/profile" className="btn btn-link">
-					Profile
-				</Link> */}
-				<Navbar></Navbar>
 
-				{/* <Link to="/addTransaction" className="btn btn-link">
-					Add Transaction
-				</Link> */}
+				<Navbar></Navbar>
 
 				<h1>Recent Transactions</h1>
 
