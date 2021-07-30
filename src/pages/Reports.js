@@ -6,6 +6,7 @@ class Reports extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			status: 'loading',
 			transactionsList: [],
 		};
 	}
@@ -15,7 +16,7 @@ class Reports extends Component {
 	}
 
 	getAllTransactions = async () => {
-		console.log('compdidmount');
+		console.log('compdidmount', this.componentDidMount);
 
 		try {
 			const myList = await transactionsApiClient.getAllTransactions();
@@ -30,18 +31,22 @@ class Reports extends Component {
 	};
 
 	render() {
-		console.log('report', this.state.transactionsList[0]);
+		console.log('report', this.state.transactionsList);
 		return (
 			<>
 				<Navbar></Navbar>
 				<h1>Reports</h1>
-				{/* {this.state.transactionsList.map(item => {
+
+				{this.state.transactionsList.map((item, index) => {
 					return (
-						<div>
-							<p> {item[0]}</p>;
+						<div key={index}>
+							<p>
+								<strong>Category</strong>:{item.category}
+							</p>
+							<p>{item.amount} €</p>
 						</div>
 					);
-				})} */}
+				})}
 			</>
 		);
 	}

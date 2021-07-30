@@ -19,7 +19,7 @@ class Transactions extends Component {
 	}
 
 	getAllTransactions = async () => {
-		console.log('compdidmount');
+		console.log('compdidmount', this.componentDidMount);
 
 		try {
 			const myList = await transactionsApiClient.getAllTransactions();
