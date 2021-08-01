@@ -26,6 +26,8 @@ class Signup extends Component {
 		const { username, password } = this.state;
 		return (
 			<div>
+				<br></br>
+
 				<form onSubmit={this.handleFormSubmit}>
 					<label>Username:</label>
 					<input className="form-control" type="text" name="username" value={username} onChange={this.handleChange} />

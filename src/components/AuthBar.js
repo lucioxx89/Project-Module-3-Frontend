@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import { withAuth } from '../providers/AuthProvider';
+import LogoApp from '../Logo/LogoApp2.png';
 
 class AuthBar extends Component {
 	render() {
@@ -17,15 +18,21 @@ class AuthBar extends Component {
 					</>
 				) : (
 					<>
-						<h1>Expense Tracking</h1>
-						<Link className="btn btn-outline-primary loginBtn" to="/login">
-							Login
-						</Link>
+						<div className="logoApp">
+							<img className="logoAppDetails" src={LogoApp} alt="logo" />
+						</div>
 						<br></br>
 
-						<Link className="btn btn-outline-primary" to="/signup">
-							Signup
-						</Link>
+						<div className="signInButtons">
+							<Link className="btn btn-outline-primary loginBtn" to="/login">
+								Login
+							</Link>
+							<br></br>
+
+							<Link className="btn btn-outline-primary signupBtn" to="/signup">
+								Signup
+							</Link>
+						</div>
 					</>
 				)}
 			</div>
