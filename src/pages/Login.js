@@ -31,10 +31,21 @@ class Login extends Component {
 				<h1>Expense Tracker</h1>
 				<form onSubmit={this.handleFormSubmit}>
 					<label>Username:</label>
-					<input type="text" name="username" value={username} onChange={this.handleChange} />
+					<input className="form-control" type="text" name="username" value={username} onChange={this.handleChange} />
+
+					<br></br>
+
 					<label>Password:</label>
-					<input type="password" name="password" value={password} onChange={this.handleChange} />
-					<input type="submit" value="Login" />
+					<input
+						className="form-control"
+						type="password"
+						name="password"
+						value={password}
+						onChange={this.handleChange}
+					/>
+					<br></br>
+
+					<input className=" btn btn-outline-primary" type="submit" value="Login" />
 				</form>
 			</>
 		);

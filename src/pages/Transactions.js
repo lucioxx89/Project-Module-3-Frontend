@@ -64,16 +64,29 @@ class Transactions extends Component {
 					<tbody>
 						{this.state.transactionsList.map(transaction => {
 							return (
-								<TransactionItem
-									key={transaction._id}
-									date={transaction.date}
-									payee={transaction.payee}
-									category={transaction.category}
-									description={transaction.description}
-									amount={transaction.amount}
-									buttonDelete={<button onClick={() => this.handleDelete(transaction._id)}>Delete</button>}
-									buttonEdit={<Link to={`/editTransaction/${transaction._id}`}>Edit</Link>}
-								/>
+								<>
+									<TransactionItem
+										key={transaction._id}
+										date={transaction.date}
+										payee={transaction.payee}
+										category={transaction.category}
+										description={transaction.description}
+										amount={transaction.amount}
+										buttonDelete={<i className="fa fa-trash" onClick={() => this.handleDelete(transaction._id)}></i>}
+										// buttonDelete={
+										// 	<button onClick={() => this.handleDelete(transaction._id)}>
+										// 	</button>
+										// }
+
+										// buttonEdit={<i className="fa fa-pencil" <Link to={`/editTransaction/${transaction._id}`}></Link></i>}
+
+										buttonEdit={
+											<i>
+												<Link to={`/editTransaction/${transaction._id}`} className="fa fa-pencil" />
+											</i>
+										}
+									/>
+								</>
 							);
 						})}
 					</tbody>

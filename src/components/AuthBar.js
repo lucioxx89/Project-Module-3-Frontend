@@ -17,9 +17,15 @@ class AuthBar extends Component {
 					</>
 				) : (
 					<>
-						<Link to="/login">Login</Link>
+						<h1>Expense Tracking</h1>
+						<Link className="btn btn-outline-primary loginBtn" to="/login">
+							Login
+						</Link>
+						<br></br>
 
-						<Link to="/signup">Signup</Link>
+						<Link className="btn btn-outline-primary" to="/signup">
+							Signup
+						</Link>
 					</>
 				)}
 			</div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from '../components/Navbar';
 import transactionsApiClient from '../lib/transactionsApiClient';
 
 class AddTransaction extends Component {
@@ -36,23 +37,68 @@ class AddTransaction extends Component {
 	render() {
 		return (
 			<>
+				<Navbar></Navbar>
+
+				<h2>Add a new transaction </h2>
 				<form onSubmit={this.handleSubmitNewTransaction}>
 					<label> Date:</label>
-					<input type="text" name="date" value={this.state.date} onChange={this.handleChangeInput} />
+					<input
+						className="form-control"
+						type="text"
+						name="date"
+						value={this.state.date}
+						onChange={this.handleChangeInput}
+					/>
+
+					<br></br>
 
 					<label> Payee:</label>
-					<input type="text" name="payee" value={this.state.payee} onChange={this.handleChangeInput} />
+					<input
+						className="form-control"
+						type="text"
+						name="payee"
+						value={this.state.payee}
+						onChange={this.handleChangeInput}
+					/>
+
+					<br></br>
 
 					<label> Description:</label>
-					<input type="text" name="description" value={this.state.description} onChange={this.handleChangeInput} />
+					<input
+						className="form-control"
+						type="text"
+						name="description"
+						value={this.state.description}
+						onChange={this.handleChangeInput}
+					/>
+
+					<br></br>
 
 					<label> Category:</label>
-					<input type="text" name="category" value={this.state.category} onChange={this.handleChangeInput} />
+					<input
+						className="form-control"
+						type="text"
+						name="category"
+						value={this.state.category}
+						onChange={this.handleChangeInput}
+					/>
+
+					<br></br>
 
 					<label> Amount:</label>
-					<input type="text" name="amount" value={this.state.amount} onChange={this.handleChangeInput} />
+					<input
+						className="form-control"
+						type="text"
+						name="amount"
+						value={this.state.amount}
+						onChange={this.handleChangeInput}
+					/>
 
-					<button type="submit">Submit</button>
+					<br></br>
+
+					<button className="btn btn-outline-success" type="submit">
+						Submit
+					</button>
 				</form>
 			</>
 		);
