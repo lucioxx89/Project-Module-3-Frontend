@@ -36,14 +36,11 @@ class Reports extends Component {
 			<>
 				<Navbar></Navbar>
 				<h1>Reports</h1>
-
 				{this.state.transactionsList.map((item, index) => {
+					console.log('item1', item);
 					return (
 						<div key={index}>
-							<p>
-								<strong>Category</strong>:{item.category}
-							</p>
-							<p>{item.amount} €</p>
+							<p>{item.description}</p>
 						</div>
 					);
 				})}
@@ -53,3 +50,10 @@ class Reports extends Component {
 }
 
 export default Reports;
+
+// .filter(item => {
+// 						console.log('item', item.payee);
+// 						if (item.payee === 'Vodafone') {
+// 							return item;
+// 						}
+// 					})
