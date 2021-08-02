@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Navbar from '../components/Navbar';
 import { withAuth } from '../providers/AuthProvider';
 import '../AddTransactionButton.css';
-import Logo from '../Logo/istockphoto-1214054918-612x612.jpeg';
+import Background from '../Logo/istockphoto-1214054918-612x612.jpeg';
 
 class Home extends Component {
 	render() {
@@ -12,7 +12,7 @@ class Home extends Component {
 				<Navbar></Navbar>
 
 				<h3>Welcome {this.props.user.username}</h3>
-				<h3>Start managing your transactions!!</h3>
+				<h4>Start managing your transactions!!</h4>
 
 				{/* <button>
 					<Link to="/transactions">Transactions</Link>
@@ -25,7 +25,7 @@ class Home extends Component {
 				</button> */}
 
 				{/* <img src="../Logo/Logo.eps" alt="Logo" /> */}
-				<img className="logo" src={Logo} alt="Logo" />
+				<img className="background" src={Background} alt="Logo" />
 			</div>
 		);
 	}

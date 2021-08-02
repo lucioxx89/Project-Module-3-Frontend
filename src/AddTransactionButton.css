@@ -58,8 +58,9 @@
   
 }
 
-.logo {
+.background {
 align-items: center;
+width: 100%;
 
 }
 
@@ -99,4 +100,19 @@ h2{
   flex-direction: column;
 
   
+}
+
+h3{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h4{
+  margin-top: 40px;
+  margin-bottom: 50px;
+   display: flex;
+  justify-content: center;
+  align-items: center;
 }
