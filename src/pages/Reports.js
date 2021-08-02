@@ -35,7 +35,7 @@ class Reports extends Component {
 		return (
 			<>
 				<Navbar></Navbar>
-				<h1>Reports</h1>
+				<h1>Report</h1>
 				{this.state.transactionsList.map((item, index) => {
 					console.log('item1', item);
 					return (

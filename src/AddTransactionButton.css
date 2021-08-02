@@ -103,7 +103,7 @@ h2{
 }
 
 h3{
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,4 +115,25 @@ h4{
    display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.table{
+  width:100%;
+  /* height: 50%;
+  margin-bottom: 5px; */
+}
+
+.logoutBtn{
+  display:flex;
+  justify-content: center;
+  
+
+}
+
+.logout {
+  
+  margin-top: 50px;
+  width: 50%;
+ 
+  
 }

@@ -51,7 +51,7 @@ class Transactions extends Component {
 
 				<h1>Recent Transactions</h1>
 
-				<table className="table table-hover">
+				<table className="table table-hover table">
 					<thead>
 						<tr>
 							<th>Date</th>

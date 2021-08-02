@@ -24,7 +24,7 @@ class Profile extends Component {
 				</Link> */}
 				<Navbar></Navbar>
 
-				<h1>Profile</h1>
+				{/* <h1>Profile</h1> */}
 
 				<AuthBar></AuthBar>
 			</div>

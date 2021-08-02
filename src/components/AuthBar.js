@@ -11,10 +11,15 @@ class AuthBar extends Component {
 			<div>
 				{isLoggedIn ? (
 					<>
-						<h3>Welcome {user.username}</h3>
-						<button onClick={logout} className="btn btn-outline-primary">
-							Logout
-						</button>
+						<br></br>
+						<br></br>
+						<h3> See you soon {user.username}</h3>
+						<br></br>
+						<div className="logoutBtn">
+							<button onClick={logout} className="btn btn-outline-danger logout">
+								Logout
+							</button>
+						</div>
 					</>
 				) : (
 					<>
