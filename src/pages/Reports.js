@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar';
 import transactionsApiClient from '../lib/transactionsApiClient';
+import Chart from '../components/Chart';
 
 class Reports extends Component {
 	constructor(props) {
@@ -36,20 +37,17 @@ class Reports extends Component {
 			<>
 				<Navbar></Navbar>
 				<h1>Report</h1>
-				{this.state.transactionsList.map((item, index) => {
-					console.log('item1', item);
-					return (
-						<div key={index}>
-							<p>{item.description}</p>
-						</div>
-					);
-				})}
+
+				<Chart transaction={this.state.transactionsList} />
 			</>
 		);
 	}
 }
 
 export default Reports;
+
+// {this.state.transactionsList.map(item => {
+// 				console.log('itemtoshow', item)};
 
 // .filter(item => {
 // 						console.log('item', item.payee);
