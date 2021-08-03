@@ -1,9 +1,11 @@
 import React from 'react';
 
 const TransactionItem = props => {
+	const date = new Date(props.date).toLocaleDateString('es-ES', { year: 'numeric', month: '2-digit', day: '2-digit' });
+
 	return (
 		<tr>
-			<td>{props.date}</td>
+			<td>{date}</td>
 			<td>{props.payee}</td>
 			<td>{props.category}</td>
 			<td>{props.description}</td>

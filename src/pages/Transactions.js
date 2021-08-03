@@ -51,39 +51,43 @@ class Transactions extends Component {
 
 				<h1>Recent Transactions</h1>
 
-				<table className="table table-hover table">
-					<thead>
-						<tr>
-							<th>Date</th>
-							<th>Payee</th>
-							<th>Category</th>
-							<th>Descripton</th>
-							<th>Amount</th>
-						</tr>
-					</thead>
-					<tbody>
-						{this.state.transactionsList.map(transaction => {
-							return (
-								<>
-									<TransactionItem
-										key={transaction._id}
-										date={transaction.date}
-										payee={transaction.payee}
-										category={transaction.category}
-										description={transaction.description}
-										amount={transaction.amount}
-										buttonDelete={<i className="fa fa-trash" onClick={() => this.handleDelete(transaction._id)}></i>}
-										buttonEdit={
-											<i>
-												<Link to={`/editTransaction/${transaction._id}`} className="fa fa-pencil" />
-											</i>
-										}
-									/>
-								</>
-							);
-						})}
-					</tbody>
-				</table>
+				<div className="table-responsive">
+					<table className="table table-hover">
+						<thead>
+							<tr>
+								<th>Date</th>
+								<th>Payee</th>
+								<th>Category</th>
+								<th>Descripton</th>
+								<th>Amount</th>
+								<th></th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							{this.state.transactionsList.map(transaction => {
+								return (
+									<>
+										<TransactionItem
+											key={transaction._id}
+											date={transaction.date}
+											payee={transaction.payee}
+											category={transaction.category}
+											description={transaction.description}
+											amount={transaction.amount}
+											buttonDelete={<i className="fa fa-trash" onClick={() => this.handleDelete(transaction._id)}></i>}
+											buttonEdit={
+												<i>
+													<Link to={`/editTransaction/${transaction._id}`} className="fa fa-pencil" />
+												</i>
+											}
+										/>
+									</>
+								);
+							})}
+						</tbody>
+					</table>
+				</div>
 			</>
 		);
 	}
