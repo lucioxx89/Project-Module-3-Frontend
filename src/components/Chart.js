@@ -2,6 +2,11 @@ import { Pie } from 'react-chartjs-2';
 
 import React, { Component } from 'react';
 
+// this.props.transaction.map((item, index) => {
+// 	console.log('category', item);
+// 	return item.category;
+// });
+
 class Chart extends Component {
 	constructor(props) {
 		super(props);
