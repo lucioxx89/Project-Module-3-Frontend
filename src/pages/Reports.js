@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar';
 import transactionsApiClient from '../lib/transactionsApiClient';
-import Chart from '../components/Chart';
+import CategorySpendingChart from '../components/CategorySpendingChart';
 
 class Reports extends Component {
 	constructor(props) {
@@ -9,6 +9,7 @@ class Reports extends Component {
 		this.state = {
 			status: 'loading',
 			transactionsList: [],
+			charts: <></>,
 		};
 	}
 
@@ -17,14 +18,11 @@ class Reports extends Component {
 	}
 
 	getAllTransactions = async () => {
-		console.log('compdidmount', this.componentDidMount);
-
 		try {
 			const myList = await transactionsApiClient.getAllTransactions();
-			console.log('createdList: ', myList);
 			this.setState({
 				status: 'loaded',
-				transactionsList: myList.found,
+				charts: <CategorySpendingChart transactions={myList.found} />,
 			});
 		} catch (error) {
 			console.log(error);
@@ -32,13 +30,12 @@ class Reports extends Component {
 	};
 
 	render() {
-		console.log('report', this.state.transactionsList);
 		return (
 			<>
 				<Navbar></Navbar>
 				<h1>Report</h1>
 
-				<Chart transaction={this.state.transactionsList} />
+				{this.state.charts}
 			</>
 		);
 	}
