@@ -19,14 +19,15 @@ class EditTransaction extends Component {
 
 		try {
 			const transactionToEdit = await transactionsApiClient.getOneTransaction(id);
-			console.log('transactiontoedit', this.props);
 			this.setState({
-				date: transactionToEdit.found.title,
+				date: transactionToEdit.found.date,
 				payee: transactionToEdit.found.payee,
 				description: transactionToEdit.found.description,
 				category: transactionToEdit.found.category,
 				amount: transactionToEdit.found.amount,
 			});
+
+			console.log('loadeeeeed');
 		} catch (error) {
 			console.log(error);
 		}
@@ -70,9 +71,9 @@ class EditTransaction extends Component {
 					<label> Date:</label>
 					<input
 						className="form-control"
-						type="text"
+						type="date"
 						name="date"
-						value={this.state.date}
+						value={this.state.date.split('T')[0]}
 						onChange={this.handleChangeInput}
 					/>
 
@@ -123,7 +124,7 @@ class EditTransaction extends Component {
 					<br></br>
 
 					<button className="btn btn-outline-success" type="submit">
-						Submit
+						Update transaction
 					</button>
 				</form>
 			</>
