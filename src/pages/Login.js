@@ -30,6 +30,8 @@ class Login extends Component {
 			<>
 				{/* <h1>Smart Pocket</h1> */}
 				<br></br>
+
+				<br></br>
 				<form onSubmit={this.handleFormSubmit}>
 					<label>Username:</label>
 					<input className="form-control" type="text" name="username" value={username} onChange={this.handleChange} />

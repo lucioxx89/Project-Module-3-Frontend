@@ -8,10 +8,8 @@ const TransactionItem = props => {
 			<td>{props.category}</td>
 			<td>{props.description}</td>
 			<td>{props.amount} €</td>
-			<td>{props.buttonDelete} </td>
 			<td>{props.buttonEdit} </td>
-
-			{/* <button>Delete {props.onDelete}</button> */}
+			<td>{props.buttonDelete} </td>
 		</tr>
 	);
 };

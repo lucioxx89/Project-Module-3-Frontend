@@ -44,7 +44,7 @@ class AddTransaction extends Component {
 					<label> Date:</label>
 					<input
 						className="form-control"
-						type="text"
+						type="date"
 						name="date"
 						value={this.state.date}
 						onChange={this.handleChangeInput}

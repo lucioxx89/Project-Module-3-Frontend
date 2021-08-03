@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import TransactionItem from '../components/TransactionItem';
 import transactionsApiClient from '../lib/transactionsApiClient';
-import '../AddTransactionButton.css';
+import '../SmartPocketStyle.css';
 import Navbar from '../components/Navbar';
 
 class Transactions extends Component {
@@ -73,13 +73,6 @@ class Transactions extends Component {
 										description={transaction.description}
 										amount={transaction.amount}
 										buttonDelete={<i className="fa fa-trash" onClick={() => this.handleDelete(transaction._id)}></i>}
-										// buttonDelete={
-										// 	<button onClick={() => this.handleDelete(transaction._id)}>
-										// 	</button>
-										// }
-
-										// buttonEdit={<i className="fa fa-pencil" <Link to={`/editTransaction/${transaction._id}`}></Link></i>}
-
 										buttonEdit={
 											<i>
 												<Link to={`/editTransaction/${transaction._id}`} className="fa fa-pencil" />

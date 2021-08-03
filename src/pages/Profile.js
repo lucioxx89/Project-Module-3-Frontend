@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import AuthBar from '../components/AuthBar';
 import Navbar from '../components/Navbar';
 

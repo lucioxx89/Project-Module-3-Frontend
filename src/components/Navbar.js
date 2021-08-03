@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import '../AddTransactionButton.css';
+import '../SmartPocketStyle.css';
 
 class Navbar extends Component {
 	render() {

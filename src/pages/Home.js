@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 // import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { withAuth } from '../providers/AuthProvider';
-import '../AddTransactionButton.css';
+import '../SmartPocketStyle.css';
 import Background from '../Logo/istockphoto-1214054918-612x612.jpeg';
 
 class Home extends Component {
