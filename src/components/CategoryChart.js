@@ -1,4 +1,4 @@
-import { Doughnut } from 'react-chartjs-2';
+import { Pie } from 'react-chartjs-2';
 
 import React, { Component } from 'react';
 
@@ -7,11 +7,11 @@ import React, { Component } from 'react';
 // 	return item.category;
 // });
 
-class CategorySpendingChart extends Component {
+class CategoryChart extends Component {
 	constructor(props) {
 		super(props);
 
-		console.log('lalalala', props.transactions);
+		console.log('props.transactions', props.transactions);
 
 		this.state = {
 			chartData: this.computeChartData(props.transactions),
@@ -43,12 +43,13 @@ class CategorySpendingChart extends Component {
 	}
 
 	categoryExpenses(categories, transactions) {
+		// map through categories variable and check through all transaction.categories. If category have same name, sum it then  pass function to categoryExpenses
 		return categories.map((category, _index) => {
 			let totalAmount = 0;
 
 			transactions.forEach((transaction, _index) => {
 				if (category === transaction.category) {
-					totalAmount = totalAmount + Math.abs(transaction.amount);
+					totalAmount = totalAmount + Math.abs(transaction.amount); // Math.abs makes negative number positive to sum it in chart, usefull for future budgeting app
 				}
 			});
 
@@ -57,28 +58,17 @@ class CategorySpendingChart extends Component {
 	}
 
 	categoriesFromTransactions(transactions) {
-		// list of categories, make sure not duplicated
+		// list of categories the filter it to remove duplicate
 		const duplicatedArray = transactions.map((item, index) => {
 			return item.category;
 		});
 		return duplicatedArray.filter((value, index) => duplicatedArray.indexOf(value) === index);
+		// filter => if value(category) has different index of a category with the same name, false and will not add it
 	}
 
 	render() {
-		return <Doughnut data={this.state.chartData} />;
+		return <Pie data={this.state.chartData} />;
 	}
 }
 
-export default CategorySpendingChart;
-
-// options={{
-// 	title: {
-// 		display: this.props.displayTitle,
-// 		text: 'Largest Cities In ' + this.props.location,
-// 		fontSize: 25,
-// 	},
-// 	legend: {
-// 		display: this.props.displayLegend,
-// 		position: this.props.legendPosition,
-// 	},
-// }}
+export default CategoryChart;

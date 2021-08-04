@@ -39,11 +39,20 @@
   flex-direction: row;
   justify-content: space-around;
   list-style-type: none;
+  
+  
 }
 
 
 #menu li {
   width: 25px;
+}
+
+.fa-home{
+  text-decoration: none;
+}
+.fa-pie-chart{
+  text-decoration: none;
 }
 
 .fa-trash {

@@ -75,13 +75,29 @@ class AddTransaction extends Component {
 					<br></br>
 
 					<label> Category:</label>
-					<input
+					{/* <input
 						className="form-control"
 						type="text"
 						name="category"
 						value={this.state.category}
 						onChange={this.handleChangeInput}
-					/>
+					/> */}
+
+					<select
+						className="form-control"
+						name="category"
+						value={this.state.category}
+						onChange={this.handleChangeInput}
+					>
+						<option value=" "> </option>
+						<option value="Home">Home</option>
+						<option value="Restaurant">Restaurant</option>
+						<option value="Health">Health</option>
+						<option value="Travel">Travel</option>
+						<option value="Beauty">Beauty</option>
+						<option value="Supermarket">Supermarket</option>
+						<option value="Other">Other</option>
+					</select>
 
 					<br></br>
 

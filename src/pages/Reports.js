@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar';
 import transactionsApiClient from '../lib/transactionsApiClient';
-import CategorySpendingChart from '../components/CategorySpendingChart';
+import CategoryChart from '../components/CategoryChart';
 
 class Reports extends Component {
 	constructor(props) {
@@ -9,7 +9,7 @@ class Reports extends Component {
 		this.state = {
 			status: 'loading',
 			transactionsList: [],
-			charts: <></>,
+			expenseCharts: <></>,
 		};
 	}
 
@@ -22,7 +22,15 @@ class Reports extends Component {
 			const myList = await transactionsApiClient.getAllTransactions();
 			this.setState({
 				status: 'loaded',
-				charts: <CategorySpendingChart transactions={myList.found} />,
+				expenseCharts: (
+					<>
+						<CategoryChart transactions={myList.found} />
+						<br></br>
+						<br></br>
+						<br></br>
+						<br></br>
+					</>
+				),
 			});
 		} catch (error) {
 			console.log(error);
@@ -33,22 +41,15 @@ class Reports extends Component {
 		return (
 			<>
 				<Navbar></Navbar>
-				<h1>Report</h1>
+				<br></br>
+				<h2>Report</h2>
+				<br></br>
+				{/* <h2>Expenses</h2> */}
 
-				{this.state.charts}
+				{this.state.expenseCharts}
 			</>
 		);
 	}
 }
 
 export default Reports;
-
-// {this.state.transactionsList.map(item => {
-// 				console.log('itemtoshow', item)};
-
-// .filter(item => {
-// 						console.log('item', item.payee);
-// 						if (item.payee === 'Vodafone') {
-// 							return item;
-// 						}
-// 					})

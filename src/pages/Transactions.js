@@ -49,7 +49,7 @@ class Transactions extends Component {
 
 				<Navbar></Navbar>
 
-				<h1>Recent Transactions</h1>
+				<h2>Recent Transactions</h2>
 
 				<div className="table-responsive">
 					<table className="table table-hover">
