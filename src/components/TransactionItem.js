@@ -1,11 +1,13 @@
 import React from 'react';
 
 const TransactionItem = transaction => {
-	const date = new Date(transaction.date).toLocaleDateString('de-DE', {
+	const date = new Date(transaction.date).toLocaleDateString('es-ES', {
 		year: 'numeric',
 		month: '2-digit',
 		day: '2-digit',
 	});
+
+	// highlight in red if transaction is negative, green if positive => for budgeting app
 
 	// let transactionClass = 'table-success';
 	// if (transaction.amount < 0) {
