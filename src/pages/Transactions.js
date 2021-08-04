@@ -48,8 +48,9 @@ class Transactions extends Component {
 				</i>
 
 				<Navbar></Navbar>
-
+				<br></br>
 				<h2>Expenses</h2>
+				<br></br>
 
 				<div className="table-responsive">
 					<table className="table table-hover">
