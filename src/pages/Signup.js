@@ -41,10 +41,11 @@ class Signup extends Component {
 						name="password"
 						value={password}
 						onChange={this.handleChange}
+						required
 					/>
 					<br></br>
 
-					<input className="btn btn-outline-primary" type="submit" value="Signup" />
+					<input className="btn btn-outline-primary" type="submit" value="Signup" required />
 				</form>
 				<br></br>
 				<p>
