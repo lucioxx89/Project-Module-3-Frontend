@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import Navbar from '../components/Navbar';
 import transactionsApiClient from '../lib/transactionsApiClient';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class AddTransaction extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			date: '',
+			missingDate: false,
+
 			payee: '',
+			missingPayee: false,
 			description: '',
-			category: [],
+			missingDescription: false,
+			category: '',
+			missingCategory: false,
 			amount: '',
+			missingAmount: false,
 		};
 	}
 
@@ -22,24 +30,117 @@ class AddTransaction extends Component {
 	};
 
 	handleSubmitNewTransaction = async event => {
+		const { date, payee, description, category, amount } = this.state;
 		event.preventDefault();
+		this.setState({
+			missingDate: false,
+			missingPayee: false,
+			missingDescription: false,
+			missingCategory: false,
+			missingAmount: false,
+		});
 
-		try {
-			await transactionsApiClient.createTransaction(this.state);
-			console.log('transactionCreated:', this.state);
-		} catch (error) {
-			console.log(error);
-		} finally {
-			this.props.history.push('/transactions', this.state);
+		// validation form starting
+		if (!date || !payee || !description || !category || !amount) {
+			if (!date && payee && description && category && amount) {
+				toast.error('Please, date field is required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({ missingDate: true });
+			} else if (!payee && date && description && category && amount) {
+				toast.error('Please payee field is required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({ missingPayee: true });
+			} else if (!description && date && payee && category && amount) {
+				toast.error('Please, description field is required', {
+					position: 'bottom',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({ missingDescription: true });
+			} else if (!category && date && payee && description && amount) {
+				toast.error('Please, category field is required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({ missingCategory: true });
+			} else if (!amount && date && payee && description && category) {
+				toast.error('Please, amount field is required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({ missingAmount: true });
+			} else {
+				toast.error('Please, all fields are required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({
+					missingDate: true,
+					missingPayee: true,
+					missingDescription: true,
+					missingCategory: true,
+					missingAmount: true,
+				});
+			}
+		} else {
+			try {
+				await transactionsApiClient.createTransaction(this.state);
+				console.log('transactionCreated:', this.state);
+			} catch (error) {
+				console.log(error);
+			} finally {
+				this.props.history.push('/transactions', this.state);
+			}
 		}
 	};
 
 	render() {
+		const { missingDate, missingPayee, missingDescription, missingCategory, missingAmount } = this.state;
 		return (
 			<>
 				<Navbar></Navbar>
 
 				<h2>Add a new transaction </h2>
+				<div>
+					{missingDate || missingPayee || missingDescription || missingCategory || missingAmount ? (
+						<ToastContainer />
+					) : (
+						''
+					)}
+				</div>
 				<form onSubmit={this.handleSubmitNewTransaction}>
 					<label> Date:</label>
 					<input

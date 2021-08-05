@@ -116,7 +116,7 @@ class EditTransaction extends Component {
 						value={this.state.category}
 						onChange={this.handleChangeInput}
 					>
-						<option value=" "> </option>
+						<option value=""> </option>
 						<option value="Home">Home</option>
 						<option value="Restaurant">Restaurant</option>
 						<option value="Health">Health</option>
