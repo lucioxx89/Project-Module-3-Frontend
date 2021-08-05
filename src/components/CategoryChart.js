@@ -38,7 +38,7 @@ class CategoryChart extends Component {
 	}
 
 	categoryExpenses(categories, transactions) {
-		// map through categories variable and check through all transaction.categories. If category have same name, sum it then  pass function to categoryExpenses
+		// Map through categories variable and check through all transaction.categories. If category have same name, sum them, then  pass function to categoryExpenses
 		return categories.map((category, _index) => {
 			let totalAmount = 0;
 
@@ -53,12 +53,12 @@ class CategoryChart extends Component {
 	}
 
 	categoriesFromTransactions(transactions) {
-		// list of categories. the filter it to remove duplicate
+		// List of categories. the filter is used to remove duplicates
 		const duplicatedArray = transactions.map((item, index) => {
 			return item.category;
 		});
 		return duplicatedArray.filter((value, index) => duplicatedArray.indexOf(value) === index);
-		// filter => if value(category) has different index of a category with the same name, false and will not add it
+		// filter => if value(category) has different index of a category with the same name, false and will not add to it
 	}
 
 	render() {

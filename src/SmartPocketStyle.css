@@ -10,17 +10,20 @@
   border-radius: 50px;
   text-align: center;
   box-shadow: 2px 2px 3px #999;
- 
 }
+
+
 .fa-plus {
   color: white;
 }
+
+
 .my-float {
   margin-top: 22px;
 }
 
+
 .navIcon {
- 
   height: 60px;
   font-size:28px;
   text-align: center;
@@ -28,9 +31,8 @@
   position: fixed;
   bottom: 0;
   width: 90%;
- 
-  
 }
+
 
 #menu {
   padding: 0;
@@ -39,8 +41,6 @@
   flex-direction: row;
   justify-content: space-around;
   list-style-type: none;
-  
-  
 }
 
 
@@ -48,58 +48,64 @@
   width: 25px;
 }
 
+
 .fa-home{
   text-decoration: none;
 }
+
+
 .fa-pie-chart{
   text-decoration: none;
 }
 
+
 .fa-trash {
   font-size:22px;
   cursor: pointer;
- 
 }
+
 
 .fa-pencil {
   font-size:20px;
   text-decoration: none;
  color: rgb(22, 20, 20);
-  
 }
+
 
 .background {
 align-items: center;
 width: 100%;
-
 }
+
 
 .loginBtn {
   width:50%;
   margin-top: 60px;
   margin-bottom: 20px;
 }
+
+
 .signupBtn {
   width:50%;
   margin-bottom: 20px;
 }
 
+
 h2{
   text-align: center;
 }
 
+
 .logoAppDetails {
    width: 90%;
 }
+
 
 .logoApp {
   display: flex;
   justify-content: center;
   align-content: center;
   margin-top: 60px;
-
-
-  
 }
 
 
@@ -108,9 +114,8 @@ h2{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  
 }
+
 
 h3{
   margin-top: 30px;
@@ -118,6 +123,7 @@ h3{
   justify-content: center;
   align-items: center;
 }
+
 
 h4{
   margin-top: 40px;
@@ -127,23 +133,19 @@ h4{
   align-items: center;
 }
 
+
 .table{
   width:100%;
-  /* height: 50%;
-  margin-bottom: 5px; */
 }
+
 
 .logoutBtn{
   display:flex;
   justify-content: center;
-  
-
 }
 
+
 .logout {
-  
   margin-top: 50px;
-  width: 50%;
- 
-  
+  width: 50%;  
 }

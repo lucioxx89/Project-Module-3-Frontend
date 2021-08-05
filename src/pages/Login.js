@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withAuth } from '../providers/AuthProvider';
+import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -17,7 +18,8 @@ class Login extends Component {
 	handleFormSubmit = event => {
 		event.preventDefault();
 		const { username, password } = this.state;
-		// validation form starting
+
+		// Validation form starting here
 		this.setState({ missingUsername: false, missingPassword: false });
 
 		if (!username || !password) {
@@ -95,6 +97,12 @@ class Login extends Component {
 
 					<input className=" btn btn-outline-primary" type="submit" value="Login" />
 				</form>
+				<br></br>
+				<p>
+					{/* curly bracket  around text are needed cos apostrophe otherwise eslint was giving error message */}
+					{`Don't have an account?`}
+					<Link to={'/'}> Signup</Link>
+				</p>
 			</>
 		);
 	}

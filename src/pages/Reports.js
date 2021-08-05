@@ -44,7 +44,6 @@ class Reports extends Component {
 				<br></br>
 				<h2>Report</h2>
 				<br></br>
-				{/* <h2>Expenses</h2> */}
 
 				{this.state.expenseCharts}
 			</>

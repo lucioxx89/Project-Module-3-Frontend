@@ -7,7 +7,7 @@ const TransactionItem = transaction => {
 		day: '2-digit',
 	});
 
-	// highlight in red if transaction is negative, green if positive => for budgeting app
+	// FOR BUDGETING APP --> highlight in red if transaction is negative, green if positive
 
 	// let transactionClass = 'table-success';
 	// if (transaction.amount < 0) {

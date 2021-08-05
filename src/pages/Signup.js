@@ -20,7 +20,7 @@ class Signup extends Component {
 		const { username, password } = this.state;
 		this.setState({ missingUsername: false, missingPassword: false });
 
-		// validation form starting
+		// Validation starting here
 		if (!username || !password) {
 			if (!username && password) {
 				toast.error('Please username is required', {
@@ -72,6 +72,7 @@ class Signup extends Component {
 		return (
 			<>
 				<br></br>
+				<br></br>
 
 				<div>{missingUsername || missingPassword ? <ToastContainer /> : ''}</div>
 
@@ -96,7 +97,7 @@ class Signup extends Component {
 				</form>
 				<br></br>
 				<p>
-					Already have account?
+					Already have an account?
 					<Link to={'/login'}> Login</Link>
 				</p>
 			</>

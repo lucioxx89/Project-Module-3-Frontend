@@ -52,7 +52,7 @@ class EditTransaction extends Component {
 			missingAmount: false,
 		});
 
-		// validation form starting
+		// Validation form starting here
 		if (!date || !payee || !description || !category || !amount) {
 			if (!date && payee && description && category && amount) {
 				toast.error('Please, date field is required', {
