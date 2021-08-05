@@ -10,7 +10,6 @@ class AddTransaction extends Component {
 		this.state = {
 			date: '',
 			missingDate: false,
-
 			payee: '',
 			missingPayee: false,
 			description: '',

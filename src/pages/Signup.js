@@ -1,67 +1,79 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withAuth } from '../providers/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class Signup extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			username: '',
-			validUsername: null,
 			password: '',
-			validPassword: null,
+			missingUsername: false,
+			missingPassword: false,
 		};
 	}
 
 	handleFormSubmit = event => {
 		event.preventDefault();
 		const { username, password } = this.state;
-		this.props.signup({ username, password });
+		this.setState({ missingUsername: false, missingPassword: false });
+
+		// validation form starting
+		if (!username || !password) {
+			if (!username && password) {
+				toast.error('Please username is required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({ missingUsername: true });
+			} else if (!password && username) {
+				toast.error('Please password is required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({ missingPassword: true });
+			} else {
+				toast.error('Please, all fields are required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({ missingUsername: true, missingPassword: true });
+			}
+		} else {
+			this.props.signup({ username, password });
+		}
 	};
 
 	handleChange = event => {
 		const { name, value } = event.target;
 		this.setState({ [name]: value });
-		if (name === 'username') {
-			const editvalue = name.replace(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
-			if (editvalue === 'undefined') {
-				return this.setState({ username: name, validUsername: true });
-			}
-			return this.setState({ username: name, validUsername: false });
-		} else if (name === 'password') {
-			const editvalue = name.replace(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/);
-			if (editvalue === 'undefined') {
-				return this.setState({ password: name, validPassword: true });
-			}
-			return this.setState({ password: name, validPassword: false });
-		}
 	};
 
-	//  if (id === "email") {
-	//     const editvalue = value.replace(/[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/);
-	//     if (editvalue === "undefined") {
-	//       return this.setState({ email: value, validEmail: true });
-	//     }
-	//     return this.setState({ email: value, validEmail: false });
-	//   } else if (id === "password") {
-	//     const editvalue = value.replace(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/);
-	//     if (editvalue === "undefined") {
-	//       return this.setState({ password: value, validPassword: true });
-	//     }
-	//     return this.setState({ password: value, validPassword: false });
-	//   } else {
-	//     const editvalue = value.replace(/^[a-zA-Z]([-']?[a-zA-Z]+)*( [a-zA-Z]([-']?[a-zA-Z]+)*)+$/);
-	//     if (editvalue === "undefined") {
-	//       return this.setState({ name: value, validName: true });
-	//     }
-	//     return this.setState({ name: value, validName: false });
-	//   }
-
 	render() {
-		const { username, password } = this.state;
+		const { username, password, missingUsername, missingPassword } = this.state;
+
 		return (
-			<div>
+			<>
 				<br></br>
+
+				<div>{missingUsername || missingPassword ? <ToastContainer /> : ''}</div>
 
 				<form onSubmit={this.handleFormSubmit}>
 					<label>Username:</label>
@@ -76,20 +88,18 @@ class Signup extends Component {
 						name="password"
 						value={password}
 						onChange={this.handleChange}
-						required
 					/>
-					{this.state.validPassword === false ? <div>8 characters long, 1 number and 1 uppercase letter</div> : ''}
 
 					<br></br>
 
-					<input className="btn btn-outline-primary" type="submit" value="Signup" required />
+					<input className="btn btn-outline-primary" type="submit" value="Signup" />
 				</form>
 				<br></br>
 				<p>
 					Already have account?
 					<Link to={'/login'}> Login</Link>
 				</p>
-			</div>
+			</>
 		);
 	}
 }

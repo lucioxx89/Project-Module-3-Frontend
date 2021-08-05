@@ -17,9 +17,9 @@ class Login extends Component {
 	handleFormSubmit = event => {
 		event.preventDefault();
 		const { username, password } = this.state;
+		// validation form starting
 		this.setState({ missingUsername: false, missingPassword: false });
 
-		// validation form starting
 		if (!username || !password) {
 			if (!username && password) {
 				toast.error('Please username is required', {
