@@ -9,14 +9,14 @@ class AddTransaction extends Component {
 		super(props);
 		this.state = {
 			date: '',
-			missingDate: false,
 			payee: '',
-			missingPayee: false,
 			description: '',
-			missingDescription: false,
 			category: '',
-			missingCategory: false,
 			amount: '',
+			missingDate: false,
+			missingPayee: false,
+			missingDescription: false,
+			missingCategory: false,
 			missingAmount: false,
 		};
 	}
@@ -65,7 +65,7 @@ class AddTransaction extends Component {
 				return this.setState({ missingPayee: true });
 			} else if (!description && date && payee && category && amount) {
 				toast.error('Please, description field is required', {
-					position: 'bottom',
+					position: 'top-center',
 					autoClose: 2000,
 					hideProgressBar: true,
 					closeOnClick: true,

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import { withAuth } from '../providers/AuthProvider';
 import '../SmartPocketStyle.css';
@@ -14,17 +13,6 @@ class Home extends Component {
 				<h3>Welcome {this.props.user.username}</h3>
 				<h4>Start managing your transactions!!</h4>
 
-				{/* <button>
-					<Link to="/transactions">Transactions</Link>
-				</button>
-				<button>
-					<Link to="/reports">Reports</Link>
-				</button>
-				<button>
-					<Link to="/profile">Profile</Link>
-				</button> */}
-
-				{/* <img src="../Logo/Logo.eps" alt="Logo" /> */}
 				<img className="background" src={Background} alt="Logo" />
 			</div>
 		);

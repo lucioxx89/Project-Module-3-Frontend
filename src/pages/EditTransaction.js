@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import transactionsApiClient from '../lib/transactionsApiClient';
 import Navbar from '../components/Navbar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class EditTransaction extends Component {
 	constructor(props) {
@@ -9,8 +11,13 @@ class EditTransaction extends Component {
 			date: '',
 			payee: '',
 			description: '',
-			category: [],
+			category: '',
 			amount: '',
+			missingDate: false,
+			missingPayee: false,
+			missingDescription: false,
+			missingCategory: false,
+			missingAmount: false,
 		};
 	}
 
@@ -37,19 +44,104 @@ class EditTransaction extends Component {
 		event.preventDefault();
 		const { id } = this.props.match.params;
 		const { date, payee, description, category, amount } = this.state;
-		try {
-			const editTransaction = await transactionsApiClient.editTransaction(id, {
-				date,
-				payee,
-				description,
-				category,
-				amount,
-			});
-			console.log(editTransaction);
-		} catch (error) {
-			console.log(error);
-		} finally {
-			this.props.history.push('/transactions');
+		this.setState({
+			missingDate: false,
+			missingPayee: false,
+			missingDescription: false,
+			missingCategory: false,
+			missingAmount: false,
+		});
+
+		// validation form starting
+		if (!date || !payee || !description || !category || !amount) {
+			if (!date && payee && description && category && amount) {
+				toast.error('Please, date field is required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({ missingDate: true });
+			} else if (!payee && date && description && category && amount) {
+				toast.error('Please payee field is required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({ missingPayee: true });
+			} else if (!description && date && payee && category && amount) {
+				toast.error('Please, description field is required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({ missingDescription: true });
+			} else if (!category && date && payee && description && amount) {
+				toast.error('Please, category field is required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({ missingCategory: true });
+			} else if (!amount && date && payee && description && category) {
+				toast.error('Please, amount field is required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({ missingAmount: true });
+			} else {
+				toast.error('Please, all fields are required', {
+					position: 'top-center',
+					autoClose: 2000,
+					hideProgressBar: true,
+					closeOnClick: true,
+					pauseOnHover: true,
+					draggable: true,
+					progress: undefined,
+				});
+				return this.setState({
+					missingDate: true,
+					missingPayee: true,
+					missingDescription: true,
+					missingCategory: true,
+					missingAmount: true,
+				});
+			}
+		} else {
+			try {
+				const editTransaction = await transactionsApiClient.editTransaction(id, {
+					date,
+					payee,
+					description,
+					category,
+					amount,
+				});
+				console.log(editTransaction);
+			} catch (error) {
+				console.log(error);
+			} finally {
+				this.props.history.push('/transactions');
+			}
 		}
 	};
 
@@ -62,10 +154,19 @@ class EditTransaction extends Component {
 	};
 
 	render() {
+		const { missingDate, missingPayee, missingDescription, missingCategory, missingAmount } = this.state;
 		return (
 			<>
 				<h2>Edit your transaction</h2>
 				<Navbar></Navbar>
+
+				<div>
+					{missingDate || missingPayee || missingDescription || missingCategory || missingAmount ? (
+						<ToastContainer />
+					) : (
+						''
+					)}
+				</div>
 
 				<form onSubmit={this.handleEdit}>
 					<label> Date:</label>
@@ -102,14 +203,6 @@ class EditTransaction extends Component {
 					<br></br>
 
 					<label> Category:</label>
-					{/* <input
-						className="form-control"
-						type="text"
-						name="category"
-						value={this.state.category}
-						onChange={this.handleChangeInput}
-					/> */}
-
 					<select
 						className="form-control"
 						name="category"

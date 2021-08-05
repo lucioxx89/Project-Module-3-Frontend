@@ -2,11 +2,6 @@ import { Pie } from 'react-chartjs-2';
 
 import React, { Component } from 'react';
 
-// this.props.transaction.map((item, index) => {
-// 	console.log('category', item);
-// 	return item.category;
-// });
-
 class CategoryChart extends Component {
 	constructor(props) {
 		super(props);
@@ -58,7 +53,7 @@ class CategoryChart extends Component {
 	}
 
 	categoriesFromTransactions(transactions) {
-		// list of categories the filter it to remove duplicate
+		// list of categories. the filter it to remove duplicate
 		const duplicatedArray = transactions.map((item, index) => {
 			return item.category;
 		});
