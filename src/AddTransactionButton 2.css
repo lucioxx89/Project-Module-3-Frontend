@@ -1,0 +1,74 @@
+.float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 70px;
+  right: 20px;
+  font-size:18px;
+  background-color: black;
+  color: white;
+  border-radius: 50px;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+ 
+}
+.fa-plus {
+  color: white;
+}
+.my-float {
+  margin-top: 22px;
+}
+
+.navIcon {
+ 
+  height: 60px;
+  font-size:28px;
+  text-align: center;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 90%;
+ 
+  
+}
+
+#menu {
+  padding: 0;
+  margin: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+
+#menu li {
+  width: 25px;
+}
+
+.fa-trash {
+  font-size:22px;
+  cursor: pointer;
+}
+
+.fa-pencil {
+  font-size:20px;
+  text-decoration: none;
+ color: rgb(22, 20, 20);
+  
+}
+
+.logo {
+align-items: center;
+
+
+}
+
+.loginBtn {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+h2{
+  text-align: center;
+}
+

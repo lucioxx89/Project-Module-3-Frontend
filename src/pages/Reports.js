@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../components/Navbar';
 import transactionsApiClient from '../lib/transactionsApiClient';
 import CategoryChart from '../components/CategoryChart';
+import YearSpendingChart from '../components/YearSpendingChart';
 
 class Reports extends Component {
 	constructor(props) {
@@ -27,8 +28,8 @@ class Reports extends Component {
 						<CategoryChart transactions={myList.found} />
 						<br></br>
 						<br></br>
-						<br></br>
-						<br></br>
+
+						<YearSpendingChart transactions={myList.found} />
 					</>
 				),
 			});
